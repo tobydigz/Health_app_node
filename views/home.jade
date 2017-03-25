@@ -1,0 +1,20 @@
+html
+    head
+        title=title
+        link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
+    body
+        div.container
+            div.jumbotron
+                h1 Hello!
+
+                if user
+                    p Welcome, #{user.fullName}
+                    p
+                        form(action='/send_message', method='POST')
+                            button.btn.btn-default(type = "submit")Send Message
+                else
+                    p Welcome to my app, ready to get started?
+                    p
+                        a.btn.btn-primary(href="/login")Login now
+
+

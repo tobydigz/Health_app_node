@@ -1,0 +1,38 @@
+html
+    head
+        title Send Message
+        link (rel='stylesheet', href='/stylesheets/form-style-3.css')
+    body
+        div.form-style-3
+            form (action="" method="post" enctype="multipart/form-data")
+                fieldset
+                    label (for="title")
+                    span Title
+                        span.required *
+                    input#title (type="text" name="title" value="")
+
+                    label (for="venue")
+                    span Venue
+                        span.required *
+                    input#venue (type="text" name="venue" value="")
+
+                    label (for="sender")
+                    span Sender
+                    span.required *
+                    input#sender (type="text" name="sender" value="")
+
+                    label (for="date")
+                    span Date
+                        span.required *
+                    input#date (type="datetime-local" name="date" value="")
+
+                fieldset
+                    legend Message
+                    label (for="message")
+                        span Message
+                            span.required *
+                    textarea#message (name="message" class="textarea-field")
+
+                    label
+                        span &nbsp;
+                        input (type="submit" value="Send Message")

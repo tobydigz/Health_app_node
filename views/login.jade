@@ -1,0 +1,22 @@
+html
+    head Login
+        link (rel='stylesheet', href='/stylesheets/form-style-7.css')
+    body
+        form.form-style-7
+            ul
+                li
+                    label (for="email") Email
+                    input#useremail (type="email" name="email")
+                    span Enter your email here
+                li
+                    label (for="password")Password
+                    input#userpass (type="password" name="password")
+                    span Enter your password here
+                li
+                    input (type="submit" value"Login")
+
+
+-function adjust_textarea(h) {
+    -h.style.height = "20px";
+    -h.style.height = (h.scrollHeight) + "px";
+-}
