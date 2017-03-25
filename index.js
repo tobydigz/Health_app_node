@@ -25,6 +25,7 @@ var port = process.env.PORT || 8080;
 app.set('views', './views');
 app.set('view engine', 'jade');
 
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function (req, res) {
     res.render('home', {
