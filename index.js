@@ -92,9 +92,7 @@ function sendMessagetoTopic(title) {
 
 function isAuthenticated(req, res, next){
 
-    if (loggedIn)return next();
-
-    res.redirect('/login');
+    return loggedIn;
 }
 
 function displayForm(res) {
