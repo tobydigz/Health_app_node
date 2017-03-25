@@ -10,11 +10,11 @@ html
                 if user
                     p Welcome, #{user.fullName}
                     p
-                        form(action='/send_message', method='POST')
+                        form(action='/send_message', method='GET')
                             button.btn.btn-default(type = "submit" value = "Send Message")
                 else
                     p Welcome to my app, ready to get started?
                     p
-                        a.btn.btn-primary(href="/login" value="Login now")
+                        a.btn.btn-primary(href="/login" value="Login now") Login Now
 
 
