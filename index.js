@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 var admin = require("firebase-admin");
 var serviceAccount = require('./json/adminsdk');
-var loggedIn = false;
+var loggedIn = true;
 
 
 admin.initializeApp({
@@ -47,13 +47,13 @@ app.post('/login', function (req, res) {
     return res.redirect('/send_message');
 });
 
-app.get('/send_message', isAuthenticated, function (req, res) {
+app.get('/send_message', function (req, res) {
     res.render('send_message',{
         title: 'Send Message'
     });
 });
 
-app.post('/send_message',isAuthenticated, function (req, res) {
+app.post('/send_message', function (req, res) {
 
     var title = req.body.title;
     var message = req.body.message;
