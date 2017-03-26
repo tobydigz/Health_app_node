@@ -44,7 +44,7 @@ app.post('/login', function (req, res) {
     var userPassword = req.body.userpass;
 
     if(userEmail === 'doctor' && userPassword === '12345')loggedIn = true;
-    res.redirect('/send_message');
+    return res.redirect('/send_message');
 });
 
 app.get('/send_message', isAuthenticated, function (req, res) {
