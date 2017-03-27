@@ -43,7 +43,9 @@ app.post('/login', function (req, res) {
     var userEmail = req.body.useremail;
     var userPassword = req.body.userpass;
 
-    if(userEmail === 'doctor' && userPassword === '12345')loggedIn = true;
+    if(userEmail === 'doctor' && userPassword === '12345'){
+        loggedIn = true;
+    }
     return res.redirect('/send_message');
 });
 
@@ -54,7 +56,7 @@ app.get('/send_message', function (req, res) {
 });
 
 app.post('/send_message', function (req, res) {
-
+console.log(req.body);
     var message = req.body.message;
     writeMessagetoDb(message);
     sendMessagetoTopic(message);
