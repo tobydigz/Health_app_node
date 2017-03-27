@@ -60,6 +60,7 @@ app.post('/send_message', function (req, res) {
     var message = req.body.message;
     writeMessagetoDb(message);
     sendMessagetoTopic(message);
+    res.redirect('/')
 });
 
 function writeMessagetoDb(message) {
@@ -73,7 +74,7 @@ function writeMessagetoDb(message) {
 function sendMessagetoTopic(message) {
     var topic = "reminders_wfWMN7OlAVZz0jwhLSiKwCrVFqQ2";
     var payload = {
-        message: message
+        notification: message
     };
 
     admin.messaging().sendToTopic(topic, payload)
