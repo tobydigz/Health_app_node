@@ -57,25 +57,21 @@ app.post('/send_message', function (req, res) {
 
     var title = req.body.title;
     var message = req.body.message;
-    var date = req.body.date;
-    var venue = req.body.venue;
     var sender = req.body.sender;
-    writeMessagetoDb(message, title, date, venue, sender);
+    writeMessagetoDb(message, title, sender);
     sendMessagetoTopic(title);
 });
 
-function writeMessagetoDb(message, title, date, venue, sender) {
-    ref.push({
+function writeMessagetoDb(message, title, sender) {
+    ref.child("wfWMN7OlAVZz0jwhLSiKwCrVFqQ2").push({
         "title": title,
         "message": message,
-        "sender": sender,
-        "venue": venue,
-        "date": date
+        "sender": sender
     });
 }
 
 function sendMessagetoTopic(title) {
-    var topic = "reminders";
+    var topic = "reminders_wfWMN7OlAVZz0jwhLSiKwCrVFqQ2";
 
     var payload = {
         message: title
