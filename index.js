@@ -55,14 +55,12 @@ app.get('/send_message', function (req, res) {
 
 app.post('/send_message', function (req, res) {
 
-    var title = req.body.title;
     var message = req.body.message;
-    var sender = req.body.sender;
-    writeMessagetoDb(message, title, sender);
-    sendMessagetoTopic(title);
+    writeMessagetoDb(message);
+    sendMessagetoTopic(message);
 });
 
-function writeMessagetoDb(message, title, sender) {
+function writeMessagetoDb(message) {
     ref.child("wfWMN7OlAVZz0jwhLSiKwCrVFqQ2").push({
         "hospital": "St. Martins Hospital",
         "message": message,
@@ -70,11 +68,11 @@ function writeMessagetoDb(message, title, sender) {
     });
 }
 
-function sendMessagetoTopic(title) {
+function sendMessagetoTopic(message) {
     var topic = "reminders_wfWMN7OlAVZz0jwhLSiKwCrVFqQ2";
 
     var payload = {
-        message: title
+        message: message
     };
 
     admin.messaging().sendToTopic(topic, payload)
