@@ -72,7 +72,6 @@ function writeMessagetoDb(message) {
 
 function sendMessagetoTopic(message) {
     var topic = "reminders_wfWMN7OlAVZz0jwhLSiKwCrVFqQ2";
-
     var payload = {
         message: message
     };
