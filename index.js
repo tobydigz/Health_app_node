@@ -64,9 +64,9 @@ app.post('/send_message', function (req, res) {
 
 function writeMessagetoDb(message, title, sender) {
     ref.child("wfWMN7OlAVZz0jwhLSiKwCrVFqQ2").push({
-        "title": title,
+        "hospital": "St. Martins Hospital",
         "message": message,
-        "sender": sender
+        "doctor": "Dr. Martins Nde"
     });
 }
 
