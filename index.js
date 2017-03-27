@@ -56,7 +56,7 @@ app.get('/send_message', function (req, res) {
 });
 
 app.post('/send_message', function (req, res) {
-console.log(req.body);
+    console.log(req.body);
     var message = req.body.message;
     writeMessagetoDb(message);
     sendMessagetoTopic(message);
@@ -100,3 +100,4 @@ function displayForm(res) {
 }
 
 app.listen(port);
+console.log('Server started! At http://localhost:' + port);
